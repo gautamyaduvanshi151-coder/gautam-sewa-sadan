@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Gautam Sewa Sadan Hospital | Multi-Speciality Care</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Montserrat:wght@500;600;700;800&display=swap">
+<style>
+:root{
+  --primary: #008eb0;
+  --primary-dark: #006b85;
+  --secondary: #17a2b8;
+  --accent: #f39c12;
+  --dark: #2c3e50;
+  --light-bg: #f7fafc;
+  --card-bg: #ffffff;
+  --border: #e2e8f0;
+  --text: #4a5568;
+  --heading: #1a202c;
+  --alert: #e53e3e;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Open Sans',sans-serif;color:var(--text);background:#fff;line-height:1.6}
+h1,h2,h3,h4{font-family:'Montserrat',sans-serif;color:var(--heading);font-weight:700}
+a{text-decoration:none;color:inherit}
+
+/* Top bar (SoulMedic style) */
+.top-bar{background:#f1f5f9;font-size:0.85rem;border-bottom:1px solid var(--border);padding:8px 0;color:#64748b}
+.container{max-width:1200px;margin:0 auto;padding:0 20px}
+.top-bar .container{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+.top-links{display:flex;gap:18px}
+.top-links a:hover{color:var(--primary)}
+
+/* Main Header */
+.header{background:#fff;padding:18px 0;border-bottom:2px solid #eef2f6}
+.header .container{display:flex;justify-content:space-between;align-items:center}
+.logo-area{display:flex;align-items:center;gap:12px}
+.logo-icon{width:44px;height:44px;background:var(--primary);color:#fff;border-radius:8px;display:grid;place-items:center;font-size:24px;font-weight:bold}
+.logo-title{font-size:1.5rem;font-weight:800;color:var(--primary-dark);letter-spacing:-0.5px}
+.logo-title span{color:var(--secondary)}
+.header-contact{display:flex;gap:24px}
+.contact-item{display:flex;align-items:center;gap:10px}
+.contact-item span.icon{font-size:1.6rem;color:var(--primary)}
+.contact-item small{display:block;font-size:0.75rem;color:#64748b;text-transform:uppercase}
+.contact-item b{font-size:0.95rem;color:var(--heading)}
+
+/* Navigation */
+.navbar{background:var(--primary);position:sticky;top:0;z-index:100;box-shadow:0 3px 10px rgba(0,0,0,0.1)}
+.navbar .container{display:flex;justify-content:space-between;align-items:center}
+.nav-menu{display:flex;list-style:none}
+.nav-menu li a{display:block;padding:16px 20px;color:#fff;font-weight:600;font-size:0.92rem;text-transform:uppercase;letter-spacing:0.5px;transition:0.2s}
+.nav-menu li a:hover{background:var(--primary-dark)}
+.emergency-btn{background:var(--alert);color:#fff;font-weight:700;padding:8px 18px;border-radius:4px;font-size:0.85rem;text-transform:uppercase}
+
+/* Hero Slider Area */
+.hero-slider{background:linear-gradient(rgba(0,110,138,0.85),rgba(0,68,85,0.9)), url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=1400&q=80') center/cover;color:#fff;padding:85px 0 120px;position:relative}
+.hero-content{max-width:680px}
+.hero-content h1{font-size:2.8rem;color:#fff;margin-bottom:15px;line-height:1.2}
+.hero-content p{font-size:1.15rem;margin-bottom:28px;opacity:0.95}
+.btn-group{display:flex;gap:14px;flex-wrap:wrap}
+.btn{padding:12px 26px;border-radius:4px;font-weight:700;font-size:0.95rem;display:inline-block;cursor:pointer;border:none}
+.btn-primary{background:var(--secondary);color:#fff}
+.btn-primary:hover{background:#138496}
+.btn-white{background:#fff;color:var(--primary-dark)}
+
+/* 3 Quick Cards overlapping hero (SoulMedic Feature) */
+.quick-cards{margin-top:-60px;position:relative;z-index:20;margin-bottom:60px}
+.card-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.q-card{background:#fff;padding:28px;border-radius:6px;box-shadow:0 8px 20px rgba(0,0,0,0.06);border-top:4px solid var(--primary)}
+.q-card:nth-child(2){border-top-color:var(--secondary)}
+.q-card:nth-child(3){border-top-color:var(--accent)}
+.q-card h3{margin-bottom:12px;font-size:1.2rem}
+.q-card p{font-size:0.92rem;color:#64748b}
+
+/* Government Accreditation & Certificate Section */
+.accreditation{background:#fff;padding:50px 0;border-bottom:1px solid var(--border)}
+.accreditation-title{text-align:center;margin-bottom:32px}
+.accreditation-title h2{font-size:1.8rem;color:var(--heading)}
+.accreditation-title p{color:#64748b;font-size:0.95rem}
+.badge-grid{display:grid;grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));gap:20px}
+.cert-card{display:flex;align-items:center;gap:15px;padding:18px 20px;background:#f8fafc;border:1.5px solid var(--border);border-radius:8px;box-shadow:0 2px 5px rgba(0,0,0,0.02)}
+.medal-icon{width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg, #f6d365 0%, #fda085 100%);color:#fff;display:grid;place-items:center;font-size:1.6rem;flex-shrink:0;box-shadow:0 3px 8px rgba(246,211,101,0.4)}
+.cert-card:nth-child(2) .medal-icon{background:linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)}
+.cert-card:nth-child(3) .medal-icon{background:linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)}
+.cert-card:nth-child(4) .medal-icon{background:linear-gradient(135deg, #fa709a 0%, #fee140 100%)}
+.cert-text h4{font-size:1rem;margin-bottom:3px}
+.cert-text span{font-size:0.8rem;color:#64748b;display:block}
+
+/* Services */
+.services{padding:75px 0;background:var(--light-bg)}
+.section-head{text-align:center;margin-bottom:48px}
+.section-head h2{font-size:2.2rem;margin-bottom:10px}
+.section-head p{color:#64748b;max-width:600px;margin:0 auto}
+.svc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:25px}
+.svc-box{background:#fff;padding:30px;border-radius:6px;border-bottom:3px solid transparent;box-shadow:0 2px 10px rgba(0,0,0,0.03);transition:0.3s}
+.svc-box:hover{transform:translateY(-4px);border-bottom-color:var(--primary)}
+.svc-box .icon{font-size:2.2rem;margin-bottom:15px;color:var(--primary)}
+.svc-box h3{font-size:1.25rem;margin-bottom:10px}
+
+/* Doctors Area */
+.doctors{padding:75px 0;background:#fff}
+.filter-tabs{display:flex;justify-content:center;gap:10px;margin-bottom:35px;flex-wrap:wrap}
+.tab-btn{background:#e2e8f0;border:none;padding:8px 20px;border-radius:20px;font-weight:600;cursor:pointer;transition:0.2s}
+.tab-btn.active, .tab-btn:hover{background:var(--primary);color:#fff}
+.doc-grid{display:grid;grid-template-columns:repeat(auto-fill, minmax(260px, 1fr));gap:24px}
+.doc-card{border:1px solid var(--border);border-radius:8px;overflow:hidden;background:#fff;transition:0.2s;text-align:center;padding:24px 18px}
+.doc-card:hover{box-shadow:0 8px 24px rgba(0,0,0,0.08);border-color:var(--primary)}
+.doc-avatar{width:75px;height:75px;border-radius:50%;background:#e0f2fe;color:var(--primary-dark);font-size:1.4rem;font-weight:bold;display:grid;place-items:center;margin:0 auto 15px;border:3px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,0.1)}
+.doc-card h3{font-size:1.15rem;margin-bottom:4px}
+.doc-card .dept{color:var(--primary);font-size:0.85rem;font-weight:600;display:block;margin-bottom:8px}
+.doc-card .timing{font-size:0.82rem;color:#64748b;margin-bottom:16px;display:block}
+.doc-card .book-slot-btn{background:#edf2f7;border:none;color:var(--heading);padding:8px 16px;border-radius:4px;font-weight:600;cursor:pointer;width:100%;transition:0.2s}
+.doc-card .book-slot-btn:hover{background:var(--primary);color:#fff}
+
+/* Appointment Section */
+.appointment{padding:75px 0;background:var(--light-bg)}
+.book-layout{display:grid;grid-template-columns:1fr 1.2fr;gap:40px;align-items:center}
+.book-info h2{font-size:2.2rem;margin-bottom:14px}
+.form-box{background:#fff;padding:36px;border-radius:8px;box-shadow:0 4px 18px rgba(0,0,0,0.06)}
+.form-group{margin-bottom:16px}
+.form-group label{display:block;font-size:0.88rem;font-weight:600;margin-bottom:6px}
+.form-group input, .form-group select{width:100%;padding:11px 14px;border:1px solid var(--border);border-radius:4px;font-family:inherit}
+.form-group input:focus, .form-group select:focus{border-color:var(--primary);outline:none}
+
+/* Footer */
+footer{background:#1a252f;color:#94a3b8;padding:60px 0 20px;font-size:0.92rem}
+.footer-grid{display:grid;grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));gap:35px;margin-bottom:40px}
+footer h3{color:#fff;font-size:1.15rem;margin-bottom:18px;border-bottom:2px solid var(--primary);padding-bottom:8px;display:inline-block}
+footer ul{list-style:none}
+footer ul li{margin-bottom:10px}
+footer ul li a:hover{color:#fff}
+.copyright{text-align:center;border-top:1px solid #2d3748;padding-top:20px;font-size:0.85rem}
+
+@media(max-width:850px){
+  .card-grid, .book-layout{grid-template-columns:1fr}
+  .header-contact{display:none}
+  .nav-menu{flex-wrap:wrap}
+  .quick-cards{margin-top:20px}
+}
+</style>
+</head>
+<body>
+
+<!-- Top bar -->
+<div class="top-bar">
+  <div class="container">
+    <div>📞 OPD Helpline: <b>+91 98765 43210</b> | 📧 info@gautamsewasadan.org</div>
+    <div class="top-links">
+      <a href="#visit">Visiting Hours</a>
+      <a href="#appointment">Online Consultation</a>
+      <a href="#doctors">Find Doctor</a>
+    </div>
+  </div>
+</div>
+
+<!-- Header -->
+<header class="header">
+  <div class="container">
+    <div class="logo-area">
+      <div class="logo-icon">+</div>
+      <div>
+        <div class="logo-title">GAUTAM <span>SEWA SADAN</span></div>
+        <small style="color:#64748b;letter-spacing:1px;font-weight:600;text-transform:uppercase;font-size:0.75rem">Multi-Speciality Hospital & Research Centre</small>
+      </div>
+    </div>
+    <div class="header-contact">
+      <div class="contact-item">
+        <span class="icon">🚑</span>
+        <div><small>24x7 Ambulance</small><b>1800 000 000</b></div>
+      </div>
+      <div class="contact-item">
+        <span class="icon">⏰</span>
+        <div><small>Emergency Wing</small><b>Open 24 Hours</b></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Navigation -->
+<nav class="navbar">
+  <div class="container">
+    <ul class="nav-menu">
+      <li><a href="#">Home</a></li>
+      <li><a href="#services">Departments</a></li>
+      <li><a href="#doctors">Specialists</a></li>
+      <li><a href="#accreditation">Certifications</a></li>
+      <li><a href="#appointment">Appointment</a></li>
+      <li><a href="#visit">Contact</a></li>
+    </ul>
+    <a href="tel:1800000000" class="emergency-btn">Emergency Call</a>
+  </div>
+</nav>
+
+<!-- SoulMedic Hero Banner -->
+<div class="hero-slider">
+  <div class="container">
+    <div class="hero-content">
+      <h1>We Do The Best Medical Practice.</h1>
+      <p>Providing advanced diagnostics, surgical excellence, and comprehensive healthcare services with certified doctors and compassionate healing.</p>
+      <div class="btn-group">
+        <a href="#appointment" class="btn btn-primary">Book Consultation</a>
+        <a href="#doctors" class="btn btn-white">Our Specialists</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SoulMedic 3 Floating Cards -->
+<div class="container quick-cards">
+  <div class="card-grid">
+    <div class="q-card">
+      <h3>🏥 Emergency Care</h3>
+      <p>Equipped with state-of-the-art trauma bays, ventilators, and dedicated specialists active 24/7.</p>
+    </div>
+    <div class="q-card">
+      <h3>👨‍⚕️ Qualified Specialists</h3>
+      <p>Our senior doctors from top institutions bring decades of clinical excellence to patient care.</p>
+    </div>
+    <div class="q-card">
+      <h3>💳 100% Cashless TPA</h3>
+      <p>Hassle-free cashless hospitalization covered by major health insurance companies and Ayushman Bharat.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Government Certification & Awards Section -->
+<section class="accreditation" id="accreditation">
+  <div class="container">
+    <div class="accreditation-title">
+      <h2>National Recognitions & Accreditations</h2>
+      <p>Certified by leading government health and quality monitoring boards</p>
+    </div>
+    <div class="badge-grid">
+      <div class="cert-card">
+        <div class="medal-icon">🏅</div>
+        <div class="cert-text">
+          <h4>NABH Accredited</h4>
+          <span>National Quality Council of India</span>
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="medal-icon">🎖️</div>
+        <div class="cert-text">
+          <h4>Ayushman Bharat</h4>
+          <span>PM-JAY Empanelled Center</span>
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="medal-icon">🧪</div>
+        <div class="cert-text">
+          <h4>NABL Certified Lab</h4>
+          <span>National Testing Laboratory</span>
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="medal-icon">⭐</div>
+        <div class="cert-text">
+          <h4>ISO 9001:2015</h4>
+          <span>Certified Healthcare Standards</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Services / Departments -->
+<section class="services" id="services">
+  <div class="container">
+    <div class="section-head">
+      <h2>Clinical Departments</h2>
+      <p>Full suite of medical specialties under one roof</p>
+    </div>
+    <div class="svc-grid">
+      <div class="svc-box">
+        <div class="icon">❤️</div>
+        <h3>Cardiology</h3>
+        <p>Advanced cardiac ICU, angiography, echo testings, and preventive care programs.</p>
+      </div>
+      <div class="svc-box">
+        <div class="icon">🦴</div>
+        <h3>Orthopaedics</h3>
+        <p>Comprehensive fracture treatment, arthroscopy, joint replacement, and rehabilitation.</p>
+      </div>
+      <div class="svc-box">
+        <div class="icon">👶</div>
+        <h3>Pediatrics</h3>
+        <p>Newborn intensive care (NICU), pediatric emergencies, growth checkups, and vaccination.</p>
+      </div>
+      <div class="svc-box">
+        <div class="icon">🩺</div>
+        <h3>General Medicine</h3>
+        <p>Critical care management, seasonal infections, diabetes, and lifestyle illnesses.</p>
+      </div>
+      <div class="svc-box">
+        <div class="icon">⚕️</div>
+        <h3>General Surgery</h3>
+        <p>Minimally invasive laparoscopic procedures, trauma surgery, and daycare operative units.</p>
+      </div>
+      <div class="svc-box">
+        <div class="icon">🔬</div>
+        <h3>Pathology & Diagnostics</h3>
+        <p>Ultra-modern CT, digital X-Ray, ultrasound, and computer-automated pathology testing.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Doctors Section with Custom Names -->
+<section class="doctors" id="doctors">
+  <div class="container">
+    <div class="section-head">
+      <h2>Meet Our Medical Team</h2>
+      <p>Consult with our qualified specialists</p>
+    </div>
+    <div class="filter-tabs" id="filterTabs"></div>
+    <div class="doc-grid" id="docContainer"></div>
+  </div>
+</section>
+
+<!-- Appointment Form -->
+<section class="appointment" id="appointment">
+  <div class="container">
+    <div class="book-layout">
+      <div class="book-info">
+        <h2>Schedule an Appointment</h2>
+        <p style="margin-bottom:20px;color:#64748b">Avoid hospital waiting lines. Reserve your consultation time in advance. Our desk representative will call you immediately for verification.</p>
+        <div style="background:#fff;padding:20px;border-radius:6px;border-left:4px solid var(--primary)">
+          <b>OPD Timings:</b>
+          <p style="font-size:0.9rem;margin-top:4px">Monday to Saturday: 8:00 AM – 8:00 PM<br>Sunday: Emergency & On-Call Doctors Only</p>
+        </div>
+      </div>
+      <div class="form-box">
+        <form id="appointmentForm">
+          <div class="form-group">
+            <label>Patient Full Name</label>
+            <input type="text" id="patientName" required placeholder="e.g. Ramesh Kumar">
+          </div>
+          <div class="form-group">
+            <label>Phone Number</label>
+            <input type="tel" id="patientPhone" required placeholder="+91 9876543210">
+          </div>
+          <div class="form-group">
+            <label>Speciality / Department</label>
+            <select id="deptSelect" required></select>
+          </div>
+          <div class="form-group">
+            <label>Preferred Date</label>
+            <input type="date" id="prefDate" required>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width:100%;font-size:1rem;margin-top:10px">Confirm Slot</button>
+          <p id="statusMsg" style="margin-top:14px;color:var(--primary);font-weight:600;text-align:center"></p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer id="visit">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h3>Gautam Sewa Sadan</h3>
+        <p>A trusted multi-speciality medical institution delivering quality healthcare, surgical treatment, and 24x7 emergency coverage.</p>
+      </div>
+      <div>
+        <h3>Departments</h3>
+        <ul>
+          <li>Cardiology & Heart Care</li>
+          <li>Orthopaedics & Joint Clinic</li>
+          <li>Child Care & Pediatrics</li>
+          <li>General & Laparoscopic Surgery</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Emergency & Contact</h3>
+        <p>📍 Main Medical Road, City Center</p>
+        <p>📞 Emergency: 1800 000 000</p>
+        <p>📞 Reception: +91 98765 43210</p>
+        <p>✉️ help@gautamsewasadan.org</p>
+      </div>
+    </div>
+    <div class="copyright">
+      © Gautam Sewa Sadan Hospital. All rights reserved. Recognized by State & Central Medical Authorities.
+    </div>
+  </div>
+</footer>
+
+<script>
+const depts = ["Cardiology", "Orthopaedics", "Pediatrics", "General Medicine", "General Surgery"];
+
+// Doctor list
+const docs = [
+  { name: "Dr. Gautam Kumar", dept: "Cardiology", time: "Mon, Wed, Fri · 10:00 am – 2:00 pm" },
+  { name: "Dr. Prince", dept: "Cardiology", time: "Tue, Thu, Sat · 4:00 pm – 8:00 pm" },
+  { name: "Dr. Ravikant", dept: "Orthopaedics", time: "Mon – Sat · 9:00 am – 1:00 pm" },
+  { name: "Dr. Parv", dept: "Orthopaedics", time: "Wed, Fri, Sat · 3:00 pm – 7:00 pm" },
+  { name: "Dr. Deepanshu", dept: "Pediatrics", time: "Mon – Sat · 10:00 am – 3:00 pm" },
+  { name: "Dr. Rahul", dept: "Pediatrics", time: "Tue, Thu, Sat · 2:00 pm – 7:00 pm" },
+  { name: "Dr. Prakash", dept: "General Medicine", time: "Mon – Sat · 8:00 am – 2:00 pm" },
+  { name: "Dr. Siddharth", dept: "General Medicine", time: "Mon – Sat · 2:00 pm – 8:00 pm" },
+  { name: "Dr. Vivek", dept: "General Surgery", time: "Mon, Wed, Fri · 11:00 am – 5:00 pm" }
+];
+
+let activeFilter = "All";
+
+const tabsEl = document.getElementById("filterTabs");
+const docGridEl = document.getElementById("docContainer");
+const deptSelect = document.getElementById("deptSelect");
+
+function renderTabs() {
+  tabsEl.innerHTML = "";
+  ["All", ...depts].forEach(d => {
+    const btn = document.createElement("button");
+    btn.className = `tab-btn ${d === activeFilter ? "active" : ""}`;
+    btn.textContent = d;
+    btn.onclick = () => {
+      activeFilter = d;
+      renderTabs();
+      renderDocs();
+    };
+    tabsEl.appendChild(btn);
+  });
+}
+
+function renderDocs() {
+  docGridEl.innerHTML = "";
+  const filtered = docs.filter(d => activeFilter === "All" || d.dept === activeFilter);
+  
+  filtered.forEach(doc => {
+    const card = document.createElement("div");
+    card.className = "doc-card";
+    const initials = doc.name.replace("Dr. ", "").split(" ").map(w => w[0]).join("").slice(0, 2);
+    
+    card.innerHTML = `
+      <div class="doc-avatar">${initials}</div>
+      <h3>${doc.name}</h3>
+      <span class="dept">${doc.dept}</span>
+      <span class="timing">${doc.time}</span>
+      <button class="book-slot-btn" onclick="selectDoctor('${doc.dept}')">Select Doctor</button>
+    `;
+    docGridEl.appendChild(card);
+  });
+}
+
+function selectDoctor(dept) {
+  deptSelect.value = dept;
+  document.getElementById("appointment").scrollIntoView({ behavior: 'smooth' });
+  document.getElementById("patientName").focus();
+}
+
+// Populate department dropdown
+depts.forEach(d => {
+  const opt = document.createElement("option");
+  opt.value = d;
+  opt.textContent = d;
+  deptSelect.appendChild(opt);
+});
+
+// Set date limit
+document.getElementById("prefDate").min = new Date().toISOString().slice(0, 10);
+
+// Form submit
+document.getElementById("appointmentForm").onsubmit = function(e) {
+  e.preventDefault();
+  const name = document.getElementById("patientName").value;
+  document.getElementById("statusMsg").innerText = `Dhanayavad ${name}! Tumcha appointment slot nodavla ahe. Gautam Sewa Sadan che pratinidhi lavkarach call kartil.`;
+  this.reset();
+};
+
+renderTabs();
+renderDocs();
+</script>
+</body>
+</html>
